@@ -12,8 +12,11 @@ import { CompanyListComponent } from './company-list/company-list.component';
 const routes: Routes = [
   {path: '', component: HomeComponent, title: 'Home'},
   {path: 'users', component: UserListComponent, title: 'Users'},
-  {path: 'users/new', component: AddUserComponent, title: 'Add User'},
+  {path: 'users/new', component: AddUserComponent, title: 'Add Users'},
   {path: 'users/:id', component: UserProfileComponent, title: 'User Profile'},
+  {path: 'hunts', component: HuntListComponent, title: 'Hunts'},
+  {path: 'hunts/new', component: AddHuntComponent, title: 'Add Hunts'},
+  {path: 'hunts/:id', component: HuntProfileComponent, title: 'Hunt Profile'},
   {path: 'companies', component: CompanyListComponent, title: 'Companies'}
 ];
 
