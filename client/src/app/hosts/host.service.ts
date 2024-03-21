@@ -28,6 +28,10 @@ export class HostService {
     return this.httpClient.get<CompleteHunt>(`${this.huntUrl}/${id}`);
   }
 
+  getTaskById(id: string): Observable<CompleteHunt> {
+    return this.httpClient.get<CompleteHunt>(`${this.taskUrl}/${id}`);
+  }
+
   addHunt(newHunt: Partial<Hunt>): Observable<string> {
     newHunt.hostId = "588945f57546a2daea44de7c";
     return this.httpClient.post<{id: string}>(this.huntUrl, newHunt).pipe(map(result => result.id));
@@ -36,11 +40,17 @@ export class HostService {
   addTask(newTask: Partial<Task>): Observable<string> {
     return this.httpClient.post<{id: string}>(this.taskUrl, newTask).pipe(map(res => res.id));
   }
-  
+
   editHunt(id: string, updatedHunt: { name: string; description: string; est: number; }): Observable<Hunt> {
     console.log("Editing hunt with id: " + id);
     console.log(this.huntUrl + "/" + id);
     return this.httpClient.put<Hunt>(`${this.huntUrl}/${id}`, updatedHunt);
+  }
+
+  editTask(id: string, updatedTask: Partial<Task>): Observable<Task> {
+    console.log("Editing task with id: " + id);
+    console.log(this.taskUrl + "/" + id);
+    return this.httpClient.put<Task>(`${this.taskUrl}/${id}`, updatedTask);
   }
   deleteHunt(id: string): Observable<void> {
     return this.httpClient.delete<void>(`/api/hunts/${id}`);
