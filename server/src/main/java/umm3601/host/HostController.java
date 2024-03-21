@@ -207,7 +207,7 @@ public void updateHunt(Context ctx) {
     throw new NotFoundResponse("The requested hunt was not found");
   } else {
 try {
-  hunt = huntCollection.findOneAndUpdate(eq("_id", new ObjectId(id)), new Document("$set", updatedHunt));
+  hunt = huntCollection.findOneAndReplace(eq("_id", new ObjectId(id)),updatedHunt);
   ctx.json(hunt);
   ctx.status(HttpStatus.OK);
 } catch (Exception e) {
