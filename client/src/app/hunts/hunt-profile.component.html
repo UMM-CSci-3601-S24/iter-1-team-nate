@@ -43,9 +43,7 @@
       <mat-icon class="md-24" aria-label="Edit Hunt">edit</mat-icon>
     </button>
 
-    <button mat-fab class="edit-hunt-fab" matTooltip="Edit Hunt" matTooltipPosition="left" [routerLink]="['/hunts', completeHunt.hunt._id, 'edit']" data-test="editHuntButton">
-      <mat-icon class="md-24" aria-label="Edit Hunt">edit</mat-icon>
-    </button>
+
 
     <button mat-fab class="remove-hunt-fab" matTooltip="Remove Hunt" matTooltipPosition="left" (click)="deleteHunt(completeHunt.hunt._id)" data-test="removeHuntButton">
 
